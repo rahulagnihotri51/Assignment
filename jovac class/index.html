@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+</head>
+<body>
+
+    <form id="myForm">
+        <input type="text" id="username" placeholder="Enter Name">
+        <br><br>
+
+        <input type="password" id="password" placeholder="Enter Password">
+        <br>
+
+        <p id="errorMsg"></p>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        const form = document.getElementById("myForm");
+        const input = document.getElementById("username");
+        const password = document.getElementById("password");
+        const errorMsg = document.getElementById("errorMsg");
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            if (input.value.trim() === "") {
+                errorMsg.textContent = "fill the form";
+                errorMsg.style.color = "red";
+            }
+            else if (password.value.length < 6) {
+                errorMsg.textContent = "password not valid";
+                errorMsg.style.color = "red";
+            }
+            else {
+                errorMsg.textContent = "";
+                alert("submitted");
+            }
+        });
+    </script>
+
+</body>
+</html>
